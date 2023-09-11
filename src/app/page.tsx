@@ -1,3 +1,5 @@
+"use client"
+import axios from 'axios'
 import Image from 'next/image'
 
 export default function Home() {
@@ -107,6 +109,23 @@ export default function Home() {
             Instantly deploy your Next.js site to a shareable URL with Vercel.
           </p>
         </a>
+
+
+        <button
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+          onClick={async () => {
+            let response = (await axios.get('/api/express')).data
+            console.log(response)
+            alert(response.express)
+          }}
+        >
+          <h2 className={`mb-3 text-2xl font-semibold`}>
+            Express Deploy{' '}
+          </h2>
+          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+            Instantly deploy your Next.js site to a shareable URL with Vercel.
+          </p>
+        </button>
       </div>
     </main>
   )
